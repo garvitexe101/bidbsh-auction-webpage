@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BidBash - Auctions</title>
+ 
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="/Website/css files/style.css">
+
+  
+  <style>
+
+    .secondary-navbar {
+      display: flex;
+      justify-content: center;
+      background: #4CAF50;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .secondary-navbar button {
+      background: white;
+      color:  #4CAF50;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition:.3s ease, color 0.3s ease;
+    }
+
+    .secondary-navbar button:hover {
+      background: #0056b3;
+      color: white;
+    }
+
+    .auction-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 90px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .auction-item {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .auction-item img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+    }
+
+    .auction-item h3 {
+      font-size: 2rem;
+      margin: 10px;
+      color: #333;
+    }
+
+    .auction-item p {
+      font-size: 1rem;
+      margin: 10px;
+      color: #555;
+    }
+
+.auction-item .bid-btn {
+  background-color: #4CAF50;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin: 20px;
+  color: white;
+  font-size: 16px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.bid-btn:hover {
+  transform: scale(1.1);
+  background-color: #388E3C;
+}
+
+    .auction-item .bid-btn:hover {
+      background: #0056b3;
+    }
+
+    .auction-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #333;
+      color: white;
+      margin-top: 20px;
+    }
+
+    .auction-section {
+      display: none;
+    }
+
+    .auction-section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logoLink"><div class="logo">BidBash</div> </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home </a></li>
+      <li><a href="Auctions.html">Auctions </a></li>
+      <li><a href="AboutUs.html">About Us</a></li>
+      <li><a href="Contact.html">Reach Us</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="SignIn.html"><button class="login-btn">Login / Register</button></a>
+      <div class="search-icon">🔍</div>
+    </div>
+  </nav>
+
+  
+  <div class="secondary-navbar">
+    <button onclick="switchSection('current-auctions')">Current Auctions</button>
+    <button onclick="switchSection('previous-auctions')">Previous Auctions</button>
+    <button onclick="switchSection('upcoming-auctions')">Upcoming Auctions</button>
+  </div>
+
+  
+  <div id="current-auctions" class="auction-section active">
+    <div class="auction-grid">
+      <div class="auction-item">
+        <img src="/Website/images/starry night.jpg" alt="Artwork">
+        <h3>Starry night painting</h3>
+        <p>Starting Bid: $10,000000</p>
+        <button class="bid-btn" onclick="redirectToBid('Starry night painting', 10000000, '/Website/images/starry night.jpg', 'Vincent van Goghs *Starry Night, painted in June 1889 during his stay at the Saint-Paul-de-Mausole asylum in Saint-Rémy-de-Provence, is one of his most iconic works. Depicting a swirling night sky filled with vibrant blues and yellows, the painting captures the view from his window, though van Gogh took creative liberties to express his emotional turmoil and fascination with the universe. The dynamic brushstrokes and bold colors convey both beauty and restlessness, reflecting his inner struggles. Despite van Goghs own doubts about the work, *Starry Night became a masterpiece, now housed at the Museum of Modern Art in New York, and is celebrated for its emotional depth and artistic innovation.')">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/Diamond Necklace.jpg" alt="Jewelry">
+        <h3>Diamond Necklace</h3>
+        <p>Starting Bid: $20,000</p>
+        <button class="bid-btn" onclick="redirectToBid('Diamond Necklace', 20000, '/Website/images/Diamond Necklace.jpg', 'This stunning necklace is an opulent masterpiece, crafted with precision and luxury in mind. It features a cascading design, with rows of intricately arranged diamonds forming a chandelier-like structure. The necklace is adorned with shimmering teardrop-shaped diamonds that dangle gracefully, reflecting light with brilliance. Smaller diamonds are meticulously set along delicate frameworks, adding layers of sparkle and depth. The overall design is bold yet elegant, exuding a sense of grandeur and timeless sophistication, perfect for the most lavish occasions. The contrast against the dark background highlights its radiance, making it a true showstopper.')">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/P1055309-Avecaccentuation-NR.webp" alt="Artwork">
+        <h3>katana</h3>
+        <p>Starting Bid: $1,000</p>
+        <button class="bid-btn" onclick="redirectToBid('katana sword', 1000, '/Website/images/P1055309-Avecaccentuation-NR.webp', 'This exquisite katana sword, crafted with masterful precision, is not only a symbol of Japanese craftsmanship but also carries the weight of history. Forged from high-quality steel with a distinct hamon pattern, the katana is a weapon renowned for its sharpness and elegance. Historically, the katana was wielded by samurai warriors during Japans feudal era, a time when they played a key role in shaping the nations destiny. One such iconic moment was during the Battle of Sekigahara in 1600, where the katana became a symbol of the samurai’s strength and loyalty as they fought to decide Japan’s ruling shogunate. This sword embodies the spirit of the era, combining both artistry and deadly precision, making it a remarkable relic of Japans warrior past.')">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/antique watch.jpeg" alt="Artwork">
+        <h3>antique watch</h3>
+        <p>Starting Bid: $900</p>
+        <button class="bid-btn" onclick="redirectToBid('antique pocket watch', 900, '/Website/images/antique watch.jpeg', 'This image showcases a collection of antique pocket watches, each featuring intricate craftsmanship and timeless design. The watches are encased in polished gold, with covers engraved in ornate patterns that highlight their vintage appeal. The dials display classic Roman and Arabic numerals with elegantly shaped hands, emphasizing the historical significance of these timepieces.Each watch has a protective cover, and the inclusion of decorative chains enhances their aesthetic and functional appeal. These pieces are a testament to traditional watchmaking, exuding both elegance and mechanical precision, likely from the 19th or early 20th century. They serve as collectors items or cherished heirlooms, representing a blend of artistry and history.')">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/antiquecar.jpeg" alt="Artwork">
+        <h3>vintage bentley car</h3>
+        <p>Starting Bid: $60,000</p>
+        <button class="bid-btn" onclick="redirectToBid('vintage bentley car', 60000, '/Website/images/antiquecar.jpeg','This image features a beautifully restored vintage automobile, likely from the early 20th century, such as the 1920s or 1930s. This classic car is a convertible, with a sleek black soft top and a polished maroon or burgundy body. The design reflects the elegant and functional aesthetics of its era, including a tall, upright grille, circular headlights, and a pair of side-mounted spare tires.The chrome details and wooden running boards further enhance its antique charm. The car's wire-spoke wheels and black tires complete the timeless look. This vehicle represents a significant period in automotive history, celebrated for its craftsmanship, luxury, and innovation. It would be a prized possession for vintage car enthusiasts or collectors.')">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/book.jpeg" alt="Artwork">
+        <h3>ancient book of wisdom</h3>
+        <p>Starting Bid: $1,000</p>
+        <button class="bid-btn" onclick="redirectToBid('ancient book of wisdom', 1000, '/Website/images/book.jpeg','Imagine holding in your hands a relic from a bygone era—a weathered, leather-bound book that whispers tales of forgotten worlds. Its wrinkled, timeworn pages are a treasure trove of ancient knowledge, brimming with mysterious symbols, intricate illustrations, and words penned in scripts lost to time. Each crack in its cover and every yellowed page tells a story of centuries gone by, offering a tangible connection to the wisdom and secrets of the ancients.This is more than just a book—it’s a portal to another age. Perhaps it holds the alchemical recipes of a long-lost civilization, the blueprints to unraveling the mysteries of the universe, or sacred philosophies that have stood the test of time. With its rich scent of aged parchment and the promise of undiscovered truths, this is a collector’s dream and a scholar’s muse.Whether you’re a historian, a seeker of the arcane, or someone who cherishes the beauty of the past, this extraordinary artifact is your chance to own a piece of history. Don’t just read history—hold it, feel it, and uncover its secrets. This rare and remarkable book could be yours to cherish forever. Don’t let this piece of ancient wisdom slip away!')">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/vase.jpg" alt="Artwork">
+        <h3>ancient vase</h3>
+        <p>Starting Bid: $10,000</p>
+        <button class="bid-btn" onclick="redirectToBid('ancient vase', 899, '/Website/images/vase.jpg','Step into the past with this exquisite ancient vase, a timeless masterpiece that bridges the gap between artistry and history. Crafted by the hands of artisans centuries ago, this relic radiates elegance and cultural significance. Its smooth curves and delicate form are adorned with intricate patterns, mythological motifs, or floral designs, each telling a story of the civilization that created it.The faded yet vibrant glaze, chipped edges, and weathered surface speak of its journey through time, adding authenticity and character. This vase is more than a decorative piece—it’s a fragment of a forgotten world, embodying the traditions, rituals, and aesthetics of a long-lost era.Whether displayed in a gallery, used as a striking centerpiece, or cherished in a private collection, this ancient vase is a testament to human ingenuity and artistry. Own a piece of history and let this remarkable artifact become a conversation starter and a source of wonder in your space. Its story is waiting to be discovered—will you be the one to continue its legacy?')">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/egypt.jpg" alt="Artwork">
+        <h3>ancient egyptian coffin</h3>
+        <p>Starting Bid: $8,000</p>
+        <button class="bid-btn" onclick="redirectToBid('ancient gyptian coffin', 8000, '/Website/images/egypt.jpg','Unveil the mystique of ancient Egypt with this exquisite miniature coffin, a masterpiece of craftsmanship and spirituality. Adorned with intricate hieroglyphs, protective symbols, or depictions of deities, it embodies the rich rituals and beliefs of one of history’s greatest civilizations. Its weathered surface and delicate details tell a story of reverence for the afterlife, offering a tangible connection to Egypts timeless legacy. Perfect for collectors, history enthusiasts, or anyone captivated by antiquity, this unique artifact is a powerful reminder of the artistry and mythology of a lost world. Bring home a piece of eternity and let it inspire awe and curiosity.')">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/sculpture.jpeg" alt="Artwork">
+        <h3>modern sculpture</h3>
+        <p>Starting Bid: $2,000</p>
+        <button class="bid-btn" onclick="redirectToBid('modern sculpture', 2000, '/Website/images/sculpture.jpeg','This striking modern sculpture is a bold fusion of creativity and contemporary design, embodying the essence of artistic innovation. Crafted with clean lines, abstract forms, or dynamic curves, it challenges the boundaries of traditional art while capturing the energy and imagination of the modern era. Made from materials like polished metal, sleek stone, or vibrant resin, its texture and finish create a captivating interplay of light and shadow. perfect as a centerpiece in a gallery, home, or office, this sculpture commands attention and invites interpretation, sparking conversations and inspiring thought. Whether its a statement of emotion, movement, or pure form, this piece is a testament to the limitless potential of modern art. Add a touch of sophistication and originality to your space with this exceptional work of contemporary craftsmanship.')">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/egypt2.jpeg" alt="Artwork">
+        <h3>Ancient egyptian painting</h3>
+        <p>Starting Bid: $10,000</p>
+        <button class="bid-btn" onclick="redirectToBid('Ancient egyptian painting', 10000, '/Website/images/egypt2.jpeg','This ancient Egyptian painting is a vivid window into the past, showcasing the timeless artistry and spiritual beliefs of one of history’s most fascinating civilizations. Crafted with precise detail, it often depicts gods, pharaohs, or daily life, using rich colors and symbolic imagery. The use of hieratic scale, where figures of higher status are depicted larger than others, reveals the cultural reverence for the divine and royal figures. Painted on papyrus or wood, the vibrant yet weathered hues evoke the power and mysticism of ancient Egypt, while hieroglyphic inscriptions offer insight into the narratives and rituals of the time. Perfect for collectors, history enthusiasts, or those captivated by ancient art, this painting offers a tangible connection to a world that valued beauty, symbolism, and the afterlife. Own a piece of history, and let its story enrich your space with the grandeur of ancient Egypt.')">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/mustang.jpg" alt="Artwork">
+        <h3>Classic 1960's Mustang</h3>
+        <p>Starting Bid: $50,000</p>
+        <button class="bid-btn" onclick="redirectToBid('Classic 1960s Mustang', 50000, '/Website/images/mustang.jpg','The classic 1960s Ford Mustang is a true American icon, offering the perfect blend of style, performance, and timeless appeal. With its sleek design, powerful V8 engines, and a reputation for thrilling driving experiences, the Mustang defined the pony car era and continues to captivate car enthusiasts and collectors alike. Whether you’re looking for a piece of automotive history or a high-performance classic, the 1960s Mustang delivers unmatched value and an unmistakable road presence, making it a must-have for anyone who appreciates the art of driving.')">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/watch.jpg" alt="Artwork">
+        <h3>Ulysse Nardin Dual Time Manufacture</h3>
+        <p>Starting Bid: $8,000</p>
+        <button class="bid-btn" onclick="redirectToBid('Ulysse Nardin Dual Time Manufacture', 8000, '/Website/images/watch.jpg'),'The Ulysse Nardin Dual Time Manufacture is a remarkable timepiece that combines precision, innovation, and sophisticated design. Renowned for its exceptional craftsmanship, this watch features the brands iconic dual time zone function,allowing the wearer to effortlessly track two time zones simultaneously with ease and style. The sleek dial is elegantly designed, with clear markers and an intuitive layout, making it both functional and visually striking. Powered by Ulysse Nardin’s in-house movement, the watch showcases the brand’s commitment to horological excellence and technical mastery. A perfect blend of luxury and utility, the Ulysse Nardin Dual Time Manufacture is an ideal choice for the discerning traveler or watch enthusiast, offering both advanced functionality and timeless elegance.'">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/crown.avif" alt="Artwork">
+        <h3>Royal crown</h3>
+        <p>Starting Bid: $50,00,000</p>
+        <button class="bid-btn" onclick="redirectToBid('Royal crown', 15000, '/Website/images/crown.avif','This royal crown is a magnificent piece of craftsmanship, symbolizing power, heritage, and tradition. Made with intricate detailing, it features precious metals and stones that speak to the opulence and grandeur of royalty. Crowns like this were not just symbols of authority, but also of divine right, often worn during key moments in history. This particular crown is reminiscent of those worn during monumental events such as the coronation of Queen Elizabeth I of England in 1559. Her ascension marked the beginning of the Elizabethan era, a time of flourishing arts, exploration, and military victories. The crown, with its timeless design, represents not only royal heritage but also the profound impact of these transformative moments in history, making it a rare and invaluable artifact for collectors and history enthusiasts alike.')">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/stock-photo-ancient-roman-helmets-of-brave-roman-soldier-224146219.jpg" alt="Artwork">
+        <h3>ancient roman helmet</h3>
+        <p>Starting Bid: $6,000</p>
+        <button class="bid-btn" onclick="redirectToBid('ancient roman helmet', 6000, '/Website/images/stock-photo-ancient-roman-helmets-of-brave-roman-soldier-224146219.jpg')">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/ancient-egyptian-bronze-mirror-with-intricate-details-symbol-beauty-reflection_908344-57124.avif" alt="Artwork">
+        <h3>egyptian mirror</h3>
+        <p>Starting Bid: $999</p>
+        <button class="bid-btn" onclick="redirectToBid('egyptian mirror', 999, '/Website/images/ancient-egyptian-bronze-mirror-with-intricate-details-symbol-beauty-reflection_908344-57124.avif','This ancient Roman helmet, or **galea**, was a key piece of armor worn by Roman soldiers, designed for both protection and status. These helmets were typically made of **bronze** or **iron**, and often featured a **ridge** running along the top, which provided additional strength. Some helmets included a **crest** or **plume**—made of horsehair or feathers—attached to the top, signaling rank or unit type. The **Imperial Gallic** and **Imperial Italic** helmet styles were among the most common, offering full head coverage with cheek guards and a neck guard for extra protection during battle. Roman helmets were crafted for comfort and functionality, often designed to fit securely with a **chin strap** and interior padding. These helmets were essential for the Roman militarys success, combining practicality with the intimidating presence that Roman soldiers became known for across the empire.')">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/iphone_16_pro_gold_photos_009.webp" alt="Car">
+        <h3>gold plated iphone 16 pro max</h3>
+        <p>Starting Bid: $10,000</p>
+        <button class="bid-btn" onclick="redirectToBid('gold plated iphone 16 pro max', 10000, '/Website/images/iphone_16_pro_gold_photos_009.webp','This Gold-Plated iPhone 16 Pro Max is a luxurious and exclusive version of Apple’s flagship smartphone, designed to combine cutting-edge technology with opulence. Featuring the latest advancements in Apple’s mobile technology, such as a powerful A18 chip, 5G connectivity, and enhanced camera systems, this model offers top-tier performance. The exterior is stunningly plated with 24k gold, giving the phone a gleaming, premium finish that sets it apart from traditional devices. The gold plating not only adds an eye-catching aesthetic but also makes it a statement piece for those who appreciate high-end craftsmanship. This iPhone is perfect for those seeking a blend of innovation and extravagance, offering both luxury and functionality in one sleek, high-performance package.')">Bid Now</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <div id="previous-auctions" class="auction-section">
+    <div class="auction-grid">
+      <div class="auction-item">
+        <img src="/Website/images/shield.webp" alt="Painting">
+        <h3>ancient shield from 12th century</h3>
+        <p>Sold for: $7,999</p>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/Piratecompass600.webp" alt="Painting">
+        <h3>ancient sailor compass</h3>
+        <p>Sold for: $985</p>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/mona lisa.jpg" alt="Painting">
+        <h3>mona lisa painting</h3>
+        <p>Sold for: $25,00,000</p>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/kitchen set.jpg" alt="Painting">
+        <h3>gold plated kitchen set</h3>
+        <p>Sold for: $11,490</p>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/armor statue.jpg" alt="Painting">
+        <h3>ancient roman warrior miniature statue</h3>
+        <p>Sold for: $5,000</p>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/Jewelery.webp" alt="Painting">
+        <h3>pearl necklace set</h3>
+        <p>Sold for: $15,000</p>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/antique house.jpeg" alt="Painting">
+        <h3> swiss house</h3>
+        <p>Sold for: $7,50,000</p>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/modernart.jpg" alt="Painting">
+        <h3>modern art</h3>
+        <p>Sold for: $12,000</p>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/diamond.avif" alt="Painting">
+        <h3>diamond ring</h3>
+        <p>Sold for: $25,000</p>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/painting.jpg" alt="Painting">
+        <h3>"The Flame of Revolution" painting</h3>
+        <p>Sold for: $19,580</p>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/amb car.jpg" alt="Painting">
+        <h3>vintage ambassador car</h3>
+        <p>Sold for: $23,100</p>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/dino.jpg" alt="Ring">
+        <h3>Dinosaur skeleton</h3>
+        <p>Sold for: $6,40,900</p>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/sq 1.jpg" alt="Ring">
+        <h3>square one building, chitkara</h3>
+        <p>Sold for: $1,03,000</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div id="upcoming-auctions" class="auction-section">
+    <div class="auction-grid">
+      <div class="auction-item">
+        <img src="/Website/images/egyptian-god-isis-wings-sculpture_c43HZ.png" alt="Sculpture">
+        <h3>ancient miniature statue</h3>
+        <p>Starting Bid: $12,000</p>
+        <h5><i class="fa-solid fa-calendar-days"></i> Yet to be announced</h5>
+
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/greek.webp" alt="Sculpture">
+        <h3>greek Sculpture</h3>
+        <p>Starting Bid: $4,200</p>
+        <h5><i class="fa-solid fa-calendar-days"></i> Yet to be announced</h5>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/sword.jpg" alt="Sculpture">
+        <h3>Mancient sword</h3>
+        <p>Starting Bid: $6,600</p>
+        <h5><i class="fa-solid fa-calendar-days"></i> Yet to be announced</h5>
+
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/pirate coin.jpg" alt="Sculpture">
+        <h3>pirate coin</h3>
+        <p>Starting Bid: $290</p>
+        <h5><i class="fa-solid fa-calendar-days"></i> Yet to be announced</h5>
+
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/armour.jpg" alt="Sculpture">
+        <h3>ancient roman armor</h3>
+        <p>Starting Bid: $6,500</p>
+        <h5><i class="fa-solid fa-calendar-days"></i> Yet to be announced</h5>
+
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/marble sculp.webp" alt="Sculpture">
+        <h3>Marble Sculpture</h3>
+        <p>Starting Bid: $3,000</p>
+        <h5><i class="fa-solid fa-calendar-days"></i> Yet to be announced</h5>
+
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/images.jpg" alt="Sculpture">
+        <h3>roman sculpted bowl</h3>
+        <p>Starting Bid: $1,100</p>
+        <h5><i class="fa-solid fa-calendar-days"></i> Yet to be announced</h5>
+
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/images (1).jpg" alt="Sculpture">
+        <h3>ancient coin</h3>
+        <p>Starting Bid: $240</p>
+        <h5><i class="fa-solid fa-calendar-days"></i> Yet to be announced</h5>
+
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/old car.jpg" alt="Sculpture">
+        <h3>Ford Model T</h3>
+        <p>Starting Bid: $62,000</p>
+        <h5><i class="fa-solid fa-calendar-days"></i> Yet to be announced</h5>
+
+      </div>
+     
+      <div class="auction-item">
+        <img src="/Website/images/kohinoor.jpg" alt="Sculpture">
+        <h3>kohinoor</h3>
+        <p>Starting Bid: $798 million</p>
+        <h5><i class="fa-solid fa-calendar-days"></i> Yet to be announced</h5>
+
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/bat.webp" alt="Watch">
+        <h3>signed bat by sachin tendulkar</h3>
+        <p>Starting Bid: $8,000</p>
+        <h5><i class="fa-solid fa-calendar-days"></i> Yet to be announced</h5>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2024 BidBash. Your Trusted Auction Partner.</p>
+  </footer>
+
+  <script src="/Website/java/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/Website/css files/SignIn.css" />
+  <title>joining page</title>
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login-html">
+      <input id="tab-1" type="radio" name="tab" class="sign-in" checked>
+      <label for="tab-1" class="tab">Sign In</label>
+      <input id="tab-2" type="radio" name="tab" class="sign-up">
+      <label for="tab-2" class="tab">Sign Up</label>
+      <div class="login-form">
+        <div class="sign-in-htm">
+          <div class="group">
+            <label for="sign-in-user"class="label">Username</label>
+            <input id="sign-in-user" type="text" class="input">
+          </div>
+          <div class="group">
+            <label for="sign-in-pass"  class="label">Password</label>
+            <input id="sign-in-pass" type="password" class="input" data-type="password">
+          </div>
+          <div class="group">
+            <input id="check" type="checkbox" class="check" checked>
+            <label for="check"><span class="icon"></span> Keep me Signed in</label>
+          </div>
+          <div class="group">
+            <input type="button" class="button" value="Sign In" onclick="handleSignIn()">
+          </div>
+
+        </div>
+
+        <div class="sign-up-htm">
+          <div class="group">
+            <label for="sign-up-user" class="label">Username</label>
+            <input id="sign-up-user" type="text" class="input">
+          </div>
+          <div class="group">
+            <label for="sign-up-pass" class="label">Password</label>
+            <input id="sign-up-pass" type="password" class="input" data-type="password">
+          </div>
+          <div class="group">
+            <label for="repeat-pass" class="label">Repeat Password</label>
+            <input id="repeat-pass" type="password" class="input" data-type="password">
+          </div>
+          <div class="group">
+            <label for="email" class="label">Email Address</label>
+            <input id="email" type="text" class="input">
+          </div>
+          <div class="group">
+            <input type="button" class="button" value="Sign Up" onclick="handleSignUp()">
+          </div>
+          <div class="hr"></div>
+          <div class="foot-lnk">
+            <label for="tab-1">Already Member?</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleSignUp() {
+      const username = document.getElementById('sign-up-user').value;
+      const password = document.getElementById('sign-up-pass').value;
+      const repeatPassword = document.getElementById('repeat-pass').value;
+      const email = document.getElementById('email').value;
+
+      if (!username || !password || !email) {
+        alert('Please fill in all fields.');
+        return;
+      }
+      if (password !== repeatPassword) {
+        alert('Passwords do not match.');
+        return;
+      }
+
+      const userData = { username, password, email };
+      localStorage.setItem(username, JSON.stringify(userData));
+      alert('Sign-up successful!');
+    }
+
+    function handleSignIn() {
+      const username = document.getElementById('sign-in-user').value;
+      const password = document.getElementById('sign-in-pass').value;
+
+      const storedUserData = localStorage.getItem(username);
+      if (!storedUserData) {
+        alert('Error: No account found with this username.');
+        return;
+      }
+
+      const userData = JSON.parse(storedUserData);
+      if (userData.password === password) {
+        alert(`Welcome back, ${userData.username}!`);
+        window.location.href = 'index.html'
+      } else {
+        alert('Error: Incorrect password.');
+      }
+    }
+  </script>
+</body>
+</html>

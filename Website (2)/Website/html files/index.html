@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BidBash - Luxury Auctions</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Website/css files/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logoLink"><div class="logo">BidBash</div> </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home </a></li>
+      <li><a href="Auctions.html">Auctions </a></li>
+      <li><a href="AboutUs.html">About Us</a></li>
+      <li><a href="Contact.html">Reach Us</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="SignIn.html"><button class="login-btn">Login / Register</button></a>
+      <div class="search-icon">🔍</div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="carousel">
+      <div class="carousel-item">
+        <img src="/Website/images/mustang.jpg" alt="Car">
+        <div class="carousel-overlay">
+          <h2>Classic 1960's Mustang</h2>
+          <p>Starting Bid: $50,000</p>
+          <button class="cta" onclick="redirectToBid('Classic 1960s Mustang', 50000, '/Website/images/mustang.jpg', 'This 1970s Ford Mustang is a classic symbol of American automotive history, embodying the power and style of the muscle car era. Known for its bold design and performance, the Mustang from this decade was a standout with its distinctive long hood, aggressive grille, and wide stance. The 1970 model, in particular, marked a peak in the Mustangs evolution, with options for powerful V8 engines and enhanced performance features. It captured the spirit of the 1970s, an era of freedom and rebellion, becoming an icon on both the streets and the racetrack. Owning this 1970s Ford Mustang is not just owning a car, but a piece of automotive history that reflects the culture and excitement of its time.')">Bid Now</button>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/Website/images/P1055309-Avecaccentuation-NR.webp" alt="Car">
+        <div class="carousel-overlay">
+          <h2>katana sword</h2>
+          <p>Starting Bid: $1,000</p>
+          <button class="cta" onclick="redirectToBid('katana sword', 1000, '/Website/images/P1055309-Avecaccentuation-NR.webp', 'This exquisite katana sword, crafted with masterful precision, is not only a symbol of Japanese craftsmanship but also carries the weight of history. Forged from high-quality steel with a distinct hamon pattern, the katana is a weapon renowned for its sharpness and elegance. Historically, the katana was wielded by samurai warriors during Japans feudal era, a time when they played a key role in shaping the nations destiny. One such iconic moment was during the Battle of Sekigahara in 1600, where the katana became a symbol of the samurai’s strength and loyalty as they fought to decide Japan’s ruling shogunate. This sword embodies the spirit of the era, combining both artistry and deadly precision, making it a remarkable relic of Japans warrior past.')">Bid Now</button>
+        </div>
+      </div>
+      <div class="carousel-item active">
+        <img src="/Website/images/starry night.jpg" alt="Artwork">
+        <div class="carousel-overlay">
+          <h2>Starry Night Painting</h2>
+          <p>Starting Bid: $10,000</p>
+          <button class="cta" onclick="redirectToBid('Starry Nights by Van Gogh', 10000, '/Website/images/starry night.jpg', 'Vincent van Goghs Starry Night, painted in June 1889 during his stay at the Saint-Paul-de-Mausole asylum in Saint-Rémy-de-Provence, is one of his most iconic works. Depicting a swirling night sky filled with vibrant blues and yellows, the painting captures the view from his window, though van Gogh took creative liberties to express his emotional turmoil and fascination with the universe. The dynamic brushstrokes and bold colors convey both beauty and restlessness, reflecting his inner struggles. Despite van Goghs own doubts about the work, *Starry Night* became a masterpiece, now housed at the Museum of Modern Art in New York, and is celebrated for its emotional depth and artistic innovation')">Bid Now</button>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/Website/images/crown.avif" alt="Jewelry">
+        <div class="carousel-overlay">
+          <h2>Royal crown</h2>
+          <p>Starting Bid: $15,000</p>
+          <button class="cta" onclick="redirectToBid('Royal crown', 15000, '/Website/images/crown.avif','This royal crown is a magnificent piece of craftsmanship, symbolizing power, heritage, and tradition. Made with intricate detailing, it features precious metals and stones that speak to the opulence and grandeur of royalty. Crowns like this were not just symbols of authority, but also of divine right, often worn during key moments in history. This particular crown is reminiscent of those worn during monumental events such as the coronation of Queen Elizabeth I of England in 1559. Her ascension marked the beginning of the Elizabethan era, a time of flourishing arts, exploration, and military victories. The crown, with its timeless design, represents not only royal heritage but also the profound impact of these transformative moments in history, making it a rare and invaluable artifact for collectors and history enthusiasts alike.')">Bid Now</button>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+ 
+  <section class="auctions">
+    <h2 class="auction-head">Current Auctions  <a href="Auctions.html"><button class="bid-btn" id="view">View All</button></a></h2>
+   
+    <div class="auction-container">
+      <div class="auction-item">
+        <img src="/Website/images/starry night.jpg" alt="Artwork">
+        <h3>starry night painting</h3>
+        <p>Starting Bid: $10,000000</p>
+        <button class="bid-btn" onclick="redirectToBid('starry night', 100000000, '/Website/images/starry night.jpg', 'Vincent van Goghs Starry Night, painted in June 1889 during his stay at the Saint-Paul-de-Mausole asylum in Saint-Rémy-de-Provence, is one of his most iconic works. Depicting a swirling night sky filled with vibrant blues and yellows, the painting captures the view from his window, though van Gogh took creative liberties to express his emotional turmoil and fascination with the universe. The dynamic brushstrokes and bold colors convey both beauty and restlessness, reflecting his inner struggles. Despite van Goghs own doubts about the work, Starry Night became a masterpiece, now housed at the Museum of Modern Art in New York, and is celebrated for its emotional depth and artistic innovation.')">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/jewellery.jpg" alt="Jewelry">
+        <h3>royal jewel</h3>
+        <p>Starting Bid: $15,000</p>
+        <button class="bid-btn" onclick="redirectToBid('diamond ring', 15000, '/Website/images/jewellery.jpg','This stunning diamond ring features a magnificent, large blue jewel at its center, surrounded by a halo of dazzling diamonds, exuding elegance and sophistication. Its vibrant blue gem and intricate design evoke the regal beauty of iconic royal jewelry, reminiscent of the famous sapphire and diamond engagement ring once owned by Princess Diana. Given to her by Prince Charles in 1981, the ring featured a striking blue sapphire encircled by diamonds, becoming a symbol of love, legacy, and royal tradition. This ring, with its combination of a brilliant blue center stone and surrounding diamonds, embodies the timeless allure and grandeur of royalty, making it a truly exceptional and valuable piece.')">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/watch.jpg" alt="Watch">
+        <h3>Luxury Watch</h3>
+        <p>Starting Bid: $8,000</p>
+        <button class="bid-btn" onclick="redirectToBid('luxury watch', 8000, '/Website/images/watch.jpg'),'This Ulysse Nardin Dual Time Manufacture is a remarkable timepiece that combines precision, innovation, and sophisticated design. Renowned for its exceptional craftsmanship, this watch features the brands iconic dual time zone function,allowing the wearer to effortlessly track two time zones simultaneously with ease and style. The sleek dial is elegantly designed, with clear markers and an intuitive layout, making it both functional and visually striking. Powered by Ulysse Nardins in-house movement, the watch showcases the brands commitment to horological excellence and technical mastery. A perfect blend of luxury and utility, the Ulysse Nardin Dual Time Manufacture is an ideal choice for the discerning traveler or watch enthusiast, offering both advanced functionality and timeless elegance.'">Bid Now</button>
+      </div>
+      <div class="auction-item">
+        <img src="/Website/images/car2.jpg" alt="Car">
+        <h3>Shelby Cobra 427</h3>
+        <p>Starting Bid: $80,000</p>
+        <button class="bid-btn" onclick="redirectToBid('Shelby Cobra 427', 80000, '/Website/images/car2.jpg', 'The Shelby Cobra 427 is an iconic American muscle car that combines raw power with sleek, timeless design. First introduced in the 1960s, this legendary vehicle was a collaboration between automotive visionary Carroll Shelby and the British manufacturer AC Cars. Powered by a massive 7.0-liter V8 engine, the Cobra 427 delivers exhilarating speed and performance, with a reputation for its light weight and agile handling. Its aggressive stance, wide fenders, and distinctive racing stripes have made it one of the most sought-after collector cars in history. The Shelby Cobra 427 was built for both the racetrack and the open road, cementing its place as a symbol of American automotive excellence and engineering.')">Bid Now</button>
+      </div>
+    </div>
+  </section>
+  <section class="auctions-upcoming">
+    <div class="content">
+      <h1 class="heading">Auctions On The Way</h1>
+      <p class="description">
+        Over the years, we have curated a wide range of online auctions in India, covering a diverse array of categories. Our portfolio boasts an impressive collection of Modern Indian Art from famous painters, exquisite vintage jewellery, fine silverware, rare timepieces, luxurious textiles, coveted celebrity memorabilia, rare books, numismatic treasures, philatelic gems, and even vintage cars. Take a look at the offerings in our upcoming online auctions.
+      </p>
+      <div class="auctions-grid">
+        <div class="auction-card">
+          <img src="/Website/images/armour.jpg" alt="Historic Masterpieces" />
+        </div>
+        <div class="auction-card">
+            <img src="/Website/images/kohinoor.jpg"/>
+        </div>
+        <div class="auction-card">
+            <img src="/Website/images/egyptian-god-isis-wings-sculpture_c43HZ.png"/>
+        </div>
+      </div>
+      <button class="btn" onclick="upcomingAuctions()">All Upcoming Auctions</button>
+    </div>
+  </section>
+
+<section class="newsletter py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h5>Subscribe to Our Newsletter</h5>
+        <p>Get updates on upcoming auctions and exclusive offers.</p>
+      </div>
+      <div class="col-md-4">
+        <form action="#" method="post" class="d-flex">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Your Email"
+            required
+          />
+          <button type="submit" class="btn btn-dark ms-2">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer bg-dark text-light py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 mb-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html" class="text-light">Home</a></li>
+          <li><a href="AboutUs.html" class="text-light">About Us</a></li>
+          <li><a href="Contact.html" class="text-light">Contact</a></li>
+          <li><a href="FAQ.html" class="text-light">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <h5>Categories</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light">Art</a></li>
+          <li><a href="#" class="text-light">DIYs</a></li>
+          <li><a href="#" class="text-light">Watches</a></li>
+          <li><a href="#" class="text-light">Cars</a></li>
+          <li><a href="#" class="text-light">Antiques</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <h5>Contact Us</h5>
+        <p>
+          <i class="bi bi-envelope"></i>
+          <a href="mailto:support@bidBash.com" class="text-light"
+            >support@BidBash.com</a
+          >
+        </p>
+        <p>
+          <i class="fa-solid fa-phone"></i> Phone: +91-7282-72-8786
+        </p>
+        <p>
+          <i class="fa-solid fa-globe"></i> Address: chitkara university,rajpura
+        </p>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <h5>Follow Us</h5>
+        <div class="d-flex">
+          <a href="#" class="text-light me-3"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" class="text-light me-3"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" class="text-light me-3"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="text-light"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <h6 class="mt-3">Download Our App</h6>
+        <div class="app-icon">
+          <a href="#"><img src="https://www.techspot.com/images2/downloads/topdownload/2022/08/2022-08-11-ts3_thumbs-68b.png" alt="Play Store" class="img-fluid" style="max-width: 30px;"></a>
+          <a href="#"><img src="https://help.apple.com/assets/66E1DA28FC17C700AB060F10/66E1DA2CFC17C700AB060F16/en_GB/5279f907b15e129c19254ca88d643cd9.png" alt="App Store" class="img-fluid" style="max-width: 30px;"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row text-center mt-4">
+      <div class="col-md-12">
+        <p>&copy; 2024 BidBash. All rights reserved.</p>
+        <p>
+          <a href="terms.html" class="text-light">Terms of Service</a> |
+          <a href="privacy.html" class="text-light">Privacy Policy</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+  
+
+  <script src="/Website/java/script.js"></script>
+</body>
+</html>

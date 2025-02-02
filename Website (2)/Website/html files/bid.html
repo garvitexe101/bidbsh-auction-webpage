@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place Your Bid - BidBash</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Website/css files/style.css">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .bid-section-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      max-width: 1100px;
+      margin: 50px auto 0;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .bid-section {
+      flex: 1;
+      max-width: 60%;
+    }
+
+    .item-details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .item-image {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .current-bid {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #28a745;
+    }
+
+    .bid-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .bid-controls input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .place-bid-btn {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .place-bid-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .item-description {
+      flex: 1;
+      padding: 15px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.8));
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .item-description h3 {
+      font-size: 1.5rem;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    .item-description p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .footer {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">BidBash</div>
+    <ul class="nav-links">
+      <li><a href="Auctions.html">Auctions </a></li>
+      <li><a href="AboutUs.html">About Us</a></li>
+      <li><a href="Contact.html">Reach Us</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="sign-in.html"><button class="login-btn">Login / Register</button></a>
+      <div class="search-icon">🔍</div>
+    </div>
+  </nav>
+
+  <div class="bid-section-container">
+    <div class="bid-section">
+      <h2 id="item-name">Item Name</h2>
+      <div class="item-details">
+        <img id="item-image" src="https://via.placeholder.com/800" alt="Item" class="item-image">
+        <p class="current-bid">Current Bid: $<span id="current-bid">0</span></p>
+        <div class="bid-controls">
+          <input type="number" id="user-bid" placeholder="Enter your bid" min="0">
+          <button class="place-bid-btn" onclick="placeBid()">Place Bid</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="item-description">
+      <h3>Description</h3>
+      <p id="item-description">No description available.</p>
+    </div>
+  </div>
+
+  <footer class="footer bg-dark text-light py-5">
+    <div class="container">
+      <div class="row">
+     
+        <div class="col-md-3 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-light">Home</a></li>
+            <li><a href="AboutUs.html" class="text-light">About Us</a></li>
+            <li><a href="Contact.html" class="text-light">Contact</a></li>
+          </ul>
+        </div>
+       
+        <div class="col-md-3 mb-4">
+          <h5>Categories</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-light">Art</a></li>
+            <li><a href="#" class="text-light">DIYS</a></li>
+            <li><a href="#" class="text-light">Watches</a></li>
+            <li><a href="#" class="text-light">Cars</a></li>
+            <li><a href="#" class="text-light">Antiques</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-md-3 mb-4">
+          <h5>Contact Us</h5>
+          <p>Email: <a href="mailto:support@bidBash.com" class="text-light">support@BidBash.com</a></p>
+          <p>Phone: <a href="tel:+1234567890" class="text-light">+1 (234) 567-890</a></p>
+          <p>Address: 123,abc, xyz</p>
+        </div>
+
+        <div class="col-md-3 mb-4">
+          <h5>Newsletter</h5>
+          <p>Stay updated with the latest deals and offers.</p>
+        
+            <div class="mb-3">
+              <input  placeholder="Your Email">
+            </div>
+            <button class="btn btn-success">Subscribe</button>
+        </div>
+      </div>
+      <hr class="bg-light">
+      <div class="row">
+        <div class="col-md-6 text-end">
+          <p class="mb-0">© 2024 BidBash. All Rights Reserved.</p>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const itemName = urlParams.get('item') || 'Unknown Item';
+    const startingBid = parseInt(urlParams.get('price')) || 0;
+    const description = urlParams.get('description');
+    const imageSource = urlParams.get('image');
+
+    
+    document.getElementById('item-name').textContent = itemName.replace(/_/g, ' ').toUpperCase();
+    document.getElementById('item-image').src = `${imageSource}`; // Replace with the actual image folder
+    document.getElementById('current-bid').textContent = startingBid;
+    document.getElementById('item-description').textContent = description || 'No description available.';
+
+    
+    function placeBid() {
+      const userBidInput = document.getElementById('user-bid');
+      const userBid = parseInt(userBidInput.value);
+
+      if (userBid > startingBid) {
+        document.getElementById('current-bid').textContent = userBid;
+        alert('Your bid has been placed!');
+        userBidInput.value = '';
+      } else {
+        alert('Your bid must be higher than the current bid!');
+      }
+    }
+
+    
+    setInterval(() => {
+      const currentBid = parseInt(document.getElementById('current-bid').textContent);
+      const randomIncrement = Math.floor(Math.random() * 5000) + 1000;
+      document.getElementById('current-bid').textContent = currentBid + randomIncrement;
+    }, Math.floor(Math.random() * 10000) + 5000);
+  </script>
+
+</body>
+</html>
